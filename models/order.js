@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
-    proudcts: [{
+    products: [{
         product: { type: Object, required: true},
         quantity: { type: Number, required: true},
     }],
