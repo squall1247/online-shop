@@ -1,4 +1,5 @@
 node_modules
-util/dbsetting.js
+util/localSetting.js
 server.cert
 server.key
+nodemon.json
