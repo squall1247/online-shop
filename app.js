@@ -1,4 +1,6 @@
 const path = require('path');
+const fs = require('fs');
+const https = require('https');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -8,6 +10,9 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
 const multer = require('multer');
+const helmet = require('helmet');
+const compression = require('compression');
+const morgan = require('morgan');
 
 //Use MongoDB Atlas, set the DB URI in dbsetting.js
 const dbsetting = require('./util/dbsetting');
@@ -24,6 +29,8 @@ const store = new MongoDBStore({
 });
 
 const csrfProtection = csrf();
+// const privateKey = fs.readFileSync('server.key');
+// const certificate = fs.readFileSync('server.cert');
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -53,7 +60,15 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 
+const accessLogFile = fs.createWriteStream(
+    path.join(__dirname, 'access.log'),
+    { flags: 'a'}
+);
+
 //middleware
+app.use(helmet());
+app.use(compression());
+app.use(morgan('combined', {stream: accessLogFile}));
 
 //if it's multipart form data, try to extract files
 app.use(
@@ -118,7 +133,10 @@ app.use((error, req, res, next) => {
 
 mongoose.connect(dbUri)
   .then(result => {
-      app.listen(3000);
+    // Set up SSL manually
+    //   https.createServer({key: privateKey, cert: certificate}, app)
+    //   .listen(process.env.PORT || 3000);
+    app.listen(process.env.PORT || 3000);
   })
   .catch(err => {
       console.log(err);

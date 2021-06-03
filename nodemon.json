@@ -1,0 +1,10 @@
+{
+    "env": {
+        "MONGO_USER": "tm",
+        "MONGO_PASSWORD": "ka3C9cKHOgLCHsXX",
+        "MONGO_DEFAULT_DATABASE": "shop",
+        "PORT": "3000",
+        "STRIPE_KEY": "sk_test_51IoNntIOtmc7TNC2luAV2j6AQBbETSWzpJZN27ySgkDX5fxNjyzVe1oBOXMJdoX3WBRhnNRI1vBj042rSR0HTFEl00w8JmA1Bs"
+    }
+}
+

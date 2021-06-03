@@ -6,8 +6,8 @@ const PDFDocument = require('pdfkit');
 const Product = require('../models/product');
 const Order = require('../models/order');
 const Setting = require('../util/dbsetting');
-const Skey = Setting.stripeKey;
-const stripe = require('stripe')(Skey);
+// const Skey = Setting.stripeKey;
+const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 const ITEMS_PER_PAGE = 2;
 
@@ -116,7 +116,6 @@ exports.postCart = (req, res, next) => {
       return req.user.addToCart(product);
     })
     .then(resutlt => {
-      console.log(resutlt);
       res.redirect('/cart');
     });
 };
