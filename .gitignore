@@ -1,2 +1,4 @@
 node_modules
 util/dbsetting.js
+server.cert
+server.key
