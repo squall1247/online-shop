@@ -1,9 +1,7 @@
 # online-shop
 
 ### Build an online shop by Node.js with MongoDB
-It is a Server-Side-Rendering¡]SSR¡^web application.
-Template engine is [EJS][efjlink]. 
-Access database by [Mongoose][mongooselink].
+It is a Server-Side-Rendering (SSR) web application. Template engine is [EJS][efjlink]. Access database by [Mongoose][mongooselink]. Deploy it to heroku successfully. deploy to heroku from github
 
 ## Features
 
@@ -31,9 +29,9 @@ npm start
 
 ## Future works
 
-- Enhance log
+- Enhance log by debug or winston modules.
 - Add testing by Mocha
-- Store upload images in AWS S3
+- Deploy to heroku from github successfully, but all uploaded images are not persistent. Store uploaded images in AWS S3.
 
  [efjlink]: <https://ejs.co/>
  [mongooselink]: <https://mongoosejs.com/>
