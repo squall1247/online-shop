@@ -66,7 +66,7 @@ const accessLogFile = fs.createWriteStream(
 );
 
 //middleware
-app.use(helmet());
+// app.use(helmet());  //temporary remove because it will affect payment function
 app.use(compression());
 app.use(morgan('combined', {stream: accessLogFile}));
 
