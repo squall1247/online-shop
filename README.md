@@ -1,25 +1,39 @@
 # online-shop
 
-Build a online shop by Node.js. Database is MongoDB.
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+### Build an online shop by Node.js with MongoDB
+It is a Server-Side-Rendering¡]SSR¡^web application.
+Template engine is [EJS][efjlink]. 
+Access database by [Mongoose][mongooselink].
 
 ## Features
 
 - Every user can view all products
 - Support user signup and login
 - A registered user can add the product to their cart and create an order
-- All data will be stored in the database
+- Authorization checking: cannot edit other user's product
 - Support reset password
+- Payment function
+- Generate the invoices pdf file
+- Generate HTTP request log at root folder, default file name is "access.log"
 
 ## Prerequisite
-- Create a mongoDB atlas account and get the url
+
+- For database, create a mongoDB atlas account and get the uri of DB, add this uri to dbsetting.js and export it
 - Create a sendGrid free account and create a API key
-- Create a dbsetting.js in util folder and export these two values as const availables
+- Create a Stripe accout
+- Set above sendGrid and Stripe keys to environment variables (e.g. process.env.STRIPE_KEY).
 
-
-## Install
+## Usage
 ```sh
 npm install
 npm start
 ```
+
+## Future works
+
+- Enhance log
+- Add testing by Mocha
+- Store upload images in AWS S3
+
+ [efjlink]: <https://ejs.co/>
+ [mongooselink]: <https://mongoosejs.com/>
